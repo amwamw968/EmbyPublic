@@ -16,12 +16,10 @@ var $util = util();
 
 if ($request.url.indexOf('/Users/') != -1) {
   if($util.status==200){
-    $response.body = JSON.stringify($response.body);
-    console.log($response.body);
-    //$util.notify("影片信息获取1", "", "影片信息获取11");
+    let body11 = JSON.stringify($response.body);
+    console.log(body11);
     $response.body = $response.body.replace(/"CanDownload":\s?false,/g, '"CanDownload": true,');
      console.log($response.body);
-    //$util.notify("影片信息获取1", "", $response.body);
     let body = JSON.parse($response.body);
     let user_id_result = $request.url.match(/\/Users\/(\w{32})/);
     if (typeof(user_id_result) != "undefined") {
