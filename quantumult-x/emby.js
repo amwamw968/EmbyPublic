@@ -16,7 +16,9 @@ var $util = util();
 
 if ($request.url.indexOf('/Users/') != -1) {
   if($util.status==200){
+    console($response.body);
     $response.body = $response.body.replace(/"CanDownload":false,/g, '"CanDownload": true,');
+     console($response.body);
     let body = JSON.parse($response.body);
     let user_id_result = $request.url.match(/\/Users\/(\w{32})/);
     if (typeof(user_id_result) != "undefined") {
