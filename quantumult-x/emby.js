@@ -16,7 +16,7 @@ var $util = util();
 
 if ($request.url.indexOf('/Users/') != -1) {
   if($util.status==200){
-    $response.body = JSON.parse($response.body);
+    $response.body = JSON.stringify($response.body);
     console.log($response.body);
     //$util.notify("影片信息获取1", "", "影片信息获取11");
     $response.body = $response.body.replace(/"CanDownload":\s?false,/g, '"CanDownload": true,');
