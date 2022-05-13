@@ -20,10 +20,12 @@ if ($request.url.indexOf('/Users/') != -1) {
     console.log("$response.body:");
     //$response.body = $response.body.replace(/"CanDownload":\s?false,/g, '"CanDownload": true,');
     let body = JSON.parse($response.body);
+    console.log("$response.body2:");
     let user_id_result = $request.url.match(/\/Users\/(\w{32})/);
     if (typeof(user_id_result) != "undefined") {
       $util.write(user_id_result[1], 'user_id');
     }
+    console.log("before query:");
     let query = getQueryVariable($request.url);
     $util.write(query['X-Emby-Client'], 'X-Emby-Client');
     $util.write(query['X-Emby-Device-Id'], 'X-Emby-Device-Id');
